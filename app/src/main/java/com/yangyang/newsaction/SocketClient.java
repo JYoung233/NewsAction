@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.Socket;
 
 /**
  * Created by yangyang on 2016/3/18.
@@ -20,8 +21,12 @@ public class SocketClient {
     private void start() {
         BufferedReader inputreader;
         inputreader= new BufferedReader(new InputStreamReader(System.in));
+        Socket socket;
         String content;
         try {
+            socket=new Socket("localhost",9898);//域名和端口号
+
+
             while(!(content=inputreader.readLine()).equals("bye")){
                 System.out.println(content);
             }
